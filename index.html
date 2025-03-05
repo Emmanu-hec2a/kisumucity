@@ -88,31 +88,52 @@
             <h2>Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="img1.jpeg" alt="img1">
+                    <img src="img1.jpeg" alt="Oginga Street">
                 </div>
                 <div class="gallery-item">
-                    <img src="img2.jpg" alt="img2">
+                    <img src="img2.jpg" alt="Imperial Hotel">
                 </div>
                 <div class="gallery-item">
-                    <img src="img3.jpeg" alt="img3">
+                    <img src="img3.jpeg" alt=" ">
                 </div>
                 <div class="gallery-item">
-                    <img src="img7.jpeg" alt="img7">
+                    <img src="img7.jpeg" alt="">
                 </div>
                 <div class="gallery-item">
-                    <img src="img5.jpg" alt="img5">
+                    <img src="img5.jpg" alt="">
                 </div>
                 <div class="gallery-item">
-                    <img src="img6.jpeg" alt="img6">
+                    <img src="img6.jpeg" alt="">
                 </div>
                 <div class="gallery-item">
-                    <img src="img8.jpeg" alt="img8">
+                    <img src="img8.jpeg" alt="">
                 </div>
                 <div class="gallery-item">
-                    <img src="huduma.jpg" alt="HC">
+                    <img src="huduma.jpg" alt="Huduma Center">
                 </div>
             </div>
+
+            <div class="lightbox">
+                <button class="lightbox-close">&times;</button>
+                <a href="#" class="lightbox-nav lightbox-prev">&lt;</a>
+                <div class="lightbox-content">
+                    <img class="lightbox-image" src="" alt="Lightbox Image">
+                    <div class="lightbox-caption"></div>
+                </div>
+                <a href="#" class="lightbox-nav lightbox-next">&gt;</a>
+            </div>
         </div>
+
+        <!-- <div class="lightbox">
+            <button class="lightbox-close">&times;</button>
+            <a href="#" class="lightbox-nav lightbox-prev">&lt;</a>
+            <div class="lightbox-content">
+                <img class="lightbox-image" src="" alt="Lightbox Image">
+                <div class="lightbox-caption"></div>
+            </div>
+            <a href="#" class="lightbox-nav lightbox-next">&gt;</a>
+        </div> -->
+    
     </div>
     
     <div id="quote" class="quote-section section-title">
@@ -151,103 +172,6 @@
     
     <a href="#" class="back-to-top" id="back-to-top">↑</a>
     
-    <script>
-        // Mobile navigation toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
-        
-        // Navbar scroll effect
-        const navContainer = document.querySelector('.nav-container');
-        
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                navContainer.classList.add('scrolled');
-            } else {
-                navContainer.classList.remove('scrolled');
-            }
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Close mobile menu if open
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileMenuBtn.textContent = '☰';
-                }
-                
-                // Skip smooth scroll for back-to-top button (it has its own handler)
-                if (this.id === 'back-to-top') return;
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 60,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Animation for timeline items
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        
-        function checkIfInView() {
-            const windowHeight = window.innerHeight;
-            const windowTopPosition = window.scrollY;
-            const windowBottomPosition = windowTopPosition + windowHeight;
-            
-            timelineItems.forEach(item => {
-                const elementHeight = item.offsetHeight;
-                const elementTopPosition = item.offsetTop;
-                const elementBottomPosition = elementTopPosition + elementHeight;
-                
-                if (elementBottomPosition >= windowTopPosition && elementTopPosition <= windowBottomPosition) {
-                    item.classList.add('visible');
-                }
-            });
-            
-            // Back to top button visibility
-            const backToTopButton = document.getElementById('back-to-top');
-            if (windowTopPosition > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        }
-        
-        // Initial check
-        window.addEventListener('load', checkIfInView);
-        
-        // Check on scroll
-        window.addEventListener('scroll', checkIfInView);
-        
-        // Back to top functionality
-        document.getElementById('back-to-top').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Gallery image click effect (placeholder for lightbox functionality)
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        galleryItems.forEach(item => {
-            item.addEventListener('click', function() {
-                alert('A full lightbox gallery would open here in a complete implementation!');
-            });
-        });
-    </script>
+<script src="script.js"></script>
 </body>
 </html>
