@@ -192,3 +192,93 @@ class Lightbox {
 document.addEventListener('DOMContentLoaded', () => {
     new Lightbox();
 });
+
+function toggleGallery() {
+    let galleryGrid = document.querySelector('.gallery-grid');
+    let button = document.querySelector('button');
+
+    if (galleryGrid.style.display === 'none' || galleryGrid.style.display === '') {
+        galleryGrid.style.display = 'grid';  // Show images
+        button.textContent = "Hide Gallery"; // Change button text
+    } else {
+        galleryGrid.style.display = 'none'; // Hide images
+        button.textContent = "Show Gallery"; // Change button text
+    }
+}
+
+const quotes = [
+    {
+        text: `"Kisumu is not just a city; it's a feeling, a lifestyle, and a home where the sunset kisses the lake goodnight."`,
+        author: "- A Traveler's Journal"
+    },
+    {
+        text: `"From the vibrant fish markets to the breathtaking lakeside views, Kisumu is a city of wonder."`,
+        author: "- Local Explorer"
+    },
+    {
+        text: `"In Kisumu, every sunrise whispers new adventures, and every sunset tells a story."`,
+        author: "- Kisumu Enthusiast"
+    }
+];
+
+let quoteIndex = 0;
+const quoteElement = document.querySelector(".quote");
+const authorElement = document.querySelector(".quote-author");
+
+function typeQuote() {
+    let quote = quotes[quoteIndex];
+    let quoteText = quote.text;
+    let authorText = `\n${quote.author}`; // New line before author
+    let i = 0;
+    let typingFinished = false;
+
+    quoteElement.innerHTML = "";
+    authorElement.innerHTML = "";
+    quoteElement.style.opacity = 1;  // Make sure the quote is visible
+    authorElement.style.opacity = 0; // Hide author initially
+
+    function type() {
+        if (i < quoteText.length) {
+            quoteElement.textContent += quoteText[i];
+        } else if (i < quoteText.length + authorText.length) {
+            if (!typingFinished) {
+                quoteElement.innerHTML += "<br>"; // Add new line before author
+                typingFinished = true;
+                authorElement.style.opacity = 1; // Make author visible
+            }
+            authorElement.textContent += authorText[i - quoteText.length];
+        }
+        i++;
+        if (i < quoteText.length + authorText.length) {
+            setTimeout(type, 50); // Typing speed
+        } else {
+            setTimeout(() => fadeOutQuote(), 2000); // Pause before fading out
+        }
+    }
+
+    type();
+}
+
+function fadeOutQuote() {
+    quoteElement.style.transition = "opacity 1s ease";
+    authorElement.style.transition = "opacity 1s ease";
+    quoteElement.style.opacity = 0;
+    authorElement.style.opacity = 0;
+
+    setTimeout(() => {
+        quoteIndex = (quoteIndex + 1) % quotes.length; // Move to next quote
+        typeQuote(); // Start next quote
+    }, 1000); // Wait for fade-out
+}
+
+// Start animation when user scrolls to the section
+function checkScroll() {
+    const section = document.querySelector("#quote");
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        window.removeEventListener("scroll", checkScroll); // Only start once
+        typeQuote();
+    }
+}
+
+window.addEventListener("scroll", checkScroll);

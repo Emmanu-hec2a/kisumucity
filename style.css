@@ -265,22 +265,31 @@ header p {
 }
 
 .quote {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-style: italic;
+    white-space: normal;
+    overflow: hidden;
+    border-right: 2px solid transparent;
+    /* font-size: 1.5rem; */
     max-width: 800px;
     margin: 0 auto;
+    line-height: 1.5;
 }
 
 .quote-author {
     margin-top: 1rem;
     font-size: 1.2rem;
+    text-align: center;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 footer {
     background-color: #2c3e50;
     color: white;
     text-align: center;
-    padding: 2rem 0;
+    padding: 20px 10px;
     margin-top: 4rem;
 }
 
@@ -292,6 +301,56 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
 }
+/* footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    font-family: Arial, sans-serif;
+} */
+
+footer h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-right: 5%;
+    margin-left: 10px;
+    text-transform: uppercase;
+    color: orangered; /* Highlight color */
+}
+
+/* Align names to the left */
+.names {
+    display: flex;
+    justify-content: flex-start; /* Aligns content to the left */
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto; /* Centers the container */
+    position: relative;
+}
+
+.names ul {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    list-style-type: none; /* Remove bullet points */
+}
+
+.names li {
+    font-size: 16px;
+    margin: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+footer p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+footer p:last-child {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
 
 .social-links {
     display: flex;
@@ -547,3 +606,20 @@ footer {
                     height: 40px;
                 }
             }
+
+            button {
+                padding: 10px 20px;
+                background-color: rgba(44, 62, 80, 0.95);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 16px;
+                position: absolute;
+                margin-left: 38%;
+            }
+            
+            button:hover {
+                background-color: #e74c3c;
+            }
+            

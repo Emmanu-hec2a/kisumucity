@@ -84,9 +84,10 @@
             </div>
         </div>
         
+        <button onclick="toggleGallery()">Show Gallery</button>
         <div id="gallery" class="gallery section-title">
-            <h2>Gallery</h2>
-            <div class="gallery-grid">
+            <!-- <button onclick="toggleGallery()">Show Gallery</button><br> -->
+            <div class="gallery-grid" style="display: none;">
                 <div class="gallery-item">
                     <img src="img1.jpeg" alt="Oginga Street">
                 </div>
@@ -137,10 +138,8 @@
     </div>
     
     <div id="quote" class="quote-section section-title">
-        <div class="quote">
-            "Kisumu is not just a city; it's a feeling, a lifestyle, and a home where the sunset kisses the lake goodnight."
-        </div>
-        <div class="quote-author">- A Traveler's Journal</div>
+        <div class="quote" id="quote-text"></div>
+        <div class="quote-author" id="quote-author"></div>
     </div>
     
     <div class="container">
@@ -157,17 +156,39 @@
     </div>
     
     <footer>
+        <!-- <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-link">f</a>
+                <a href="#" class="social-link">ln</a>
+                <a href="#" class="social-link">X</a>
+                <a href="#" class="social-link">IG</a> 
+                <a href="#" class="social-link">YT</a>
+            </div-->
+            <h3><b>Members: </b></h3>
+            <p class="names">
+                <ul style="text-align: left; justify-content: flex-start; margin: 0 auto; padding: 20px 10px; margin-left: 30px;">
+                    1. Emmanuel Odongo  | P100/4239G/23 <br>
+                    2. Abigael Cheptum  | P100/4201G/23 <br>
+                    3. Steve Nyanjwa    | P100/2225G/22 <br>
+                    4. Diana Chengetich | P100/4152G/23 <br>
+                    5. Dickson Mwangi   | P100/4089G/23 <br>
+                    6. Ogutu Margret    | P100/4221G/23 <br>
+                    7. Moranga Dominic  | P100/4250G/23 <br>
+                    8.                 ...              <br>
+                </ul><br>
+            </p>
+            <p>Created with ❤️ for Kisumu, Kenya</p>
+            <p>&copy; 2025 - Tribute Page Project | 1st March, 2025</p>
+        </div>
+
         <div class="footer-content">
             <div class="social-links">
                 <a href="#" class="social-link">f</a>
                 <a href="#" class="social-link">ln</a>
                 <a href="#" class="social-link">X</a>
                 <!-- <a href="#" class="social-link">IG</a> -->
-                <a href="#" class="social-link">YT</a>
+                <!-- <a href="#" class="social-link">YT</a> -->
             </div>
-            <p>Created with ❤️ for Kisumu, Kenya | Emmanuel Odongo.</p>
-            <p>&copy; 2025 - Tribute Page Project | 1st March, 2025</p>
-        </div>
     </footer>
     
     <a href="#" class="back-to-top" id="back-to-top">↑</a>
